@@ -1,122 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>NitePlay — Library</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NitePlay — Explore More Videos</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Browse the full collection on NitePlay. Watch more exclusive videos, updated daily with fast and smooth streaming.">
+  <meta name="keywords" content="NitePlay, more videos, streaming hub, exclusive clips, watch online">
+  <meta name="author" content="NitePlay Team">
+
+  <!-- Open Graph (FB, WA, Telegram) -->
+  <meta property="og:title" content="NitePlay — Explore More Videos">
+  <meta property="og:description" content="Browse and enjoy more exclusive videos. Daily updates, smooth streaming, only on NitePlay.">
+  <meta property="og:image" content="https://niteplayhub.github.io/assets/thumb2.jpg">
+  <meta property="og:url" content="https://niteplayhub.github.io/more.html">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NitePlay — Explore More Videos">
+  <meta name="twitter:description" content="Browse and enjoy more exclusive videos. Daily updates, smooth streaming.">
+  <meta name="twitter:image" content="https://niteplayhub.github.io/assets/thumb2.jpg">
+
+  <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="header">
     <div class="logo">NitePlay</div>
-    <div class="tag">Premium late-night videos — click a thumbnail to watch</div>
+    <p class="tag">Explore and enjoy more videos</p>
   </header>
 
-  <main class="container">
-    <section id="gallery" class="gallery" aria-live="polite">
-      <!-- cards injected here -->
-    </section>
-  </main>
-
-  <!-- Modal player -->
-  <div id="modal" class="modal" role="dialog" aria-hidden="true">
-    <div class="modal-box" role="document">
-      <div class="player">
-        <video id="player" controls playsinline preload="metadata">
-          <source id="playerSrc" src="" type="video/mp4">
-          Your browser does not support HTML5 video.
-        </video>
+  <main class="container" style="padding:20px;">
+    <h2 style="text-align:center; margin-bottom:24px;">📺 More Videos</h2>
+    <div class="video-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;max-width:1100px;margin:0 auto;">
+      <div class="video-card" style="background:#0f0f15;padding:12px;border-radius:12px;text-align:center;">
+        <img src="https://niteplayhub.github.io/assets/thumb1.jpg" alt="Video 1" style="width:100%;height:150px;object-fit:cover;border-radius:8px;">
+        <h3 style="margin:12px 0 8px">Exclusive Clip 1</h3>
+        <a href="https://videyaxhub.github.io/ivideyaxhub.mp4" class="btn">▶ Play</a>
       </div>
 
-      <div class="player-foot">
-        <div id="pTitle" style="font-weight:700"></div>
-        <div class="controls">
-          <a id="downloadBtn" class="btn ghost" target="_blank" rel="noopener">⬇ Download</a>
-          <button id="shareBtn" class="btn">🔗 Share</button>
-          <button id="closeBtn" class="btn">Close ✖</button>
-        </div>
+      <div class="video-card" style="background:#0f0f15;padding:12px;border-radius:12px;text-align:center;">
+        <img src="https://niteplayhub.github.io/assets/thumb2.jpg" alt="Video 2" style="width:100%;height:150px;object-fit:cover;border-radius:8px;">
+        <h3 style="margin:12px 0 8px">Exclusive Clip 2</h3>
+        <a href="https://cdn.example.com/video2.mp4" class="btn">▶ Play</a>
       </div>
 
-      <div class="ad-slot" id="adSlot">🔥 Ad slot 300×250 — replace with ad code later</div>
+      <div class="video-card" style="background:#0f0f15;padding:12px;border-radius:12px;text-align:center;">
+        <img src="https://niteplayhub.github.io/assets/thumb3.jpg" alt="Video 3" style="width:100%;height:150px;object-fit:cover;border-radius:8px;">
+        <h3 style="margin:12px 0 8px">Exclusive Clip 3</h3>
+        <a href="https://cdn.example.com/video3.mp4" class="btn">▶ Play</a>
+      </div>
     </div>
-  </div>
 
-  <script>
-    // load videos.json and render gallery
-    async function loadGallery(){
-      try {
-        const res = await fetch('videos.json', {cache: "no-store"});
-        if(!res.ok) throw new Error('videos.json not found');
-        const videos = await res.json();
-        const gallery = document.getElementById('gallery');
-        gallery.innerHTML = videos.map(v => `
-          <article class="card" data-src="${encodeURI(v.src)}" data-title="${escapeHtml(v.title)}">
-            <img loading="lazy" src="${v.thumbnail}" alt="${escapeHtml(v.title)}">
-            <div class="info">
-              <h3>${escapeHtml(v.title)}</h3>
-              <p>${v.duration || ''}</p>
-            </div>
-          </article>
-        `).join('');
-        // attach click handlers
-        document.querySelectorAll('.card').forEach(card => {
-          card.addEventListener('click', ()=> openPlayer(card.dataset.src, card.dataset.title) );
-        });
-      } catch (err) {
-        console.error(err);
-        document.getElementById('gallery').innerHTML = '<p style="color:#ccc">Failed to load video list.</p>';
-      }
-    }
-
-    function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;', "'":'&#39;' }[c])); }
-
-    // Player modal logic
-    const modal = document.getElementById('modal');
-    const player = document.getElementById('player');
-    const playerSrc = document.getElementById('playerSrc');
-    const pTitle = document.getElementById('pTitle');
-    const downloadBtn = document.getElementById('downloadBtn');
-    const shareBtn = document.getElementById('shareBtn');
-    const closeBtn = document.getElementById('closeBtn');
-
-    function openPlayer(src, title){
-      playerSrc.src = src;
-      player.load();
-      pTitle.textContent = title || 'Video';
-      downloadBtn.href = src;
-      modal.classList.add('show');
-      modal.setAttribute('aria-hidden','false');
-      setTimeout(()=> player.play().catch(()=>{}), 120);
-    }
-
-    function closePlayer(){
-      player.pause();
-      playerSrc.src = '';
-      player.load();
-      modal.classList.remove('show');
-      modal.setAttribute('aria-hidden','true');
-    }
-
-    closeBtn.addEventListener('click', closePlayer);
-    modal.addEventListener('click', e => { if(e.target === modal) closePlayer(); });
-    document.addEventListener('keydown', e => { if(e.key === 'Escape' && modal.classList.contains('show')) closePlayer(); });
-
-    // share/copy logic
-    shareBtn.addEventListener('click', async ()=>{
-      const url = playerSrc.src;
-      if(navigator.share){
-        try { await navigator.share({title: pTitle.textContent, url}); return; } catch(_) {}
-      }
-      try {
-        await navigator.clipboard.writeText(url);
-        alert('Link copied to clipboard');
-      } catch(e){
-        prompt('Copy this link', url);
-      }
-    });
-
-    // start
-    loadGallery();
-  </script>
+    <div style="text-align:center;margin-top:28px;">
+      <a href="index.html" class="btn">⬅ Back to Home</a>
+    </div>
+  </main>
 </body>
 </html>
