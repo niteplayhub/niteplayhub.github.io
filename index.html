@@ -5,26 +5,33 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>NitePlay — Premium Video Hub</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <header class="header">
     <div class="logo">NitePlay</div>
   </header>
 
-  <p class="tag">Exclusive premium videos — just one click away</p>
+  <section class="hero">
+    <h1>Welcome to NitePlay</h1>
+    <p>Exclusive premium videos — updated daily, smooth streaming, zero hassle</p>
+    
+    <div class="video-wrapper" id="mainPlay">
+      <img src="assets/thumb1.jpg" alt="Main Video">
+      <div class="video-overlay">
+        <div class="play-circle"></div>
+      </div>
+    </div>
 
-  <main class="container" style="text-align:center; margin-top:20px;">
-    <img src="assets/thumb1.jpg" alt="Main Video" class="main-video" id="mainPlay">
-
-    <div style="margin-top:24px;">
+    <div style="margin-top:30px;">
       <button id="playMain" class="btn">▶ Play Video</button>
       <a href="more.html" class="btn">📺 More Videos</a>
     </div>
+  </section>
 
-    <div class="ad-slot" style="margin-top:28px;">
-      🚀 Ad slot — replace with your ad code later
-    </div>
-  </main>
+  <div class="ad-slot" style="margin-top:28px;">
+    🚀 Ad slot — replace with your ad code later
+  </div>
 
   <!-- Modal Player -->
   <div id="videoModal" class="modal" style="display:none;">
@@ -37,12 +44,12 @@
   </div>
 
   <footer class="footer">
+    <div class="social">
+      <a href="https://t.me/yourchannel" target="_blank"><i class="fab fa-telegram"></i></a>
+      <a href="https://twitter.com/yourhandle" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://facebook.com/yourpage" target="_blank"><i class="fab fa-facebook"></i></a>
+    </div>
     <p>© 2025 NitePlay. All rights reserved.</p>
-    <p>
-      <a href="https://t.me/yourchannel" target="_blank">Telegram</a> |
-      <a href="https://twitter.com/yourhandle" target="_blank">Twitter</a> |
-      <a href="https://facebook.com/yourpage" target="_blank">Facebook</a>
-    </p>
   </footer>
 
   <script>
