@@ -6,75 +6,101 @@
   <title>NitePlay — Premium Video Experience</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+    * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif;}
 
     body {
       background: radial-gradient(circle at top, #1a1a2e, #0d0b1a);
-      color: #fff;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
-      overflow: hidden;
+      color:#fff;
+      height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      text-align:center;
+      overflow:hidden;
     }
 
     .logo {
-      font-size: 3.5rem;
-      font-weight: 800;
-      background: linear-gradient(45deg, #ff006e, #6a00f4);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 15px;
-      opacity: 0;
-      transform: translateY(-20px);
-      animation: fadeInUp 1s forwards;
+      font-size:3.5rem;
+      font-weight:800;
+      background:linear-gradient(45deg,#ff006e,#6a00f4);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      margin-bottom:15px;
+      animation:fadeInUp 1s forwards;
     }
 
     .headline {
-      font-size: 1.3rem;
-      color: #ccc;
-      margin-bottom: 40px;
-      opacity: 0;
-      animation: fadeIn 2s forwards 0.5s;
+      font-size:1.3rem;
+      color:#ccc;
+      margin-bottom:40px;
+      animation:fadeIn 2s forwards 0.5s;
     }
 
     .btn {
-      display: inline-block;
-      margin: 10px;
-      padding: 14px 32px;
-      font-size: 1rem;
-      font-weight: 600;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 30px;
-      background: linear-gradient(45deg, #ff006e, #6a00f4);
-      box-shadow: 0 0 15px rgba(255, 0, 110, 0.5);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      opacity: 0;
-      animation: fadeIn 2s forwards 1s;
+      display:inline-block;
+      margin:10px;
+      padding:14px 32px;
+      font-size:1rem;
+      font-weight:600;
+      color:#fff;
+      text-decoration:none;
+      border-radius:30px;
+      background:linear-gradient(45deg,#ff006e,#6a00f4);
+      box-shadow:0 0 15px rgba(255,0,110,0.5);
+      transition:transform 0.2s ease,box-shadow 0.2s ease;
+      animation:fadeIn 2s forwards 1s;
+      cursor:pointer;
     }
+    .btn:hover {transform:translateY(-4px) scale(1.05); box-shadow:0 0 25px rgba(106,0,244,0.8);}
 
-    .btn:hover {
-      transform: translateY(-4px) scale(1.05);
-      box-shadow: 0 0 25px rgba(106, 0, 244, 0.8);
+    @keyframes fadeIn {to{opacity:1;}}
+    @keyframes fadeInUp {to{opacity:1;transform:translateY(0);}}
+
+    /* --- Modal Style --- */
+    .modal {
+      position:fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      background:rgba(0,0,0,0.8);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      visibility:hidden;
+      opacity:0;
+      transition:all 0.3s ease;
+      z-index:100;
     }
-
-    @keyframes fadeIn {
-      to { opacity: 1; }
+    .modal.active {
+      visibility:visible;
+      opacity:1;
     }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .modal-content {
+      background:#0d0b1a;
+      padding:20px;
+      border-radius:15px;
+      box-shadow:0 0 25px rgba(106,0,244,0.7);
+      max-width:90%;
+      max-height:80%;
+    }
+    .modal video {
+      width:100%;
+      height:auto;
+      border-radius:10px;
+    }
+    .close-btn {
+      display:block;
+      margin-top:10px;
+      background:#ff006e;
+      color:#fff;
+      padding:8px 20px;
+      border:none;
+      border-radius:20px;
+      cursor:pointer;
+      font-weight:600;
+    }
+    .close-btn:hover {
+      background:#6a00f4;
     }
   </style>
 </head>
@@ -82,7 +108,35 @@
   <h1 class="logo">NitePlay</h1>
   <p class="headline">Your Premium Late Night Video Destination</p>
 
-  <a href="ivideyaxhub.mp4" class="btn">▶ Play Now</a>
+  <button class="btn" id="playBtn">▶ Play Now</button>
   <a href="more.html" class="btn">📺 More Videos</a>
+
+  <!-- Modal Player -->
+  <div class="modal" id="videoModal">
+    <div class="modal-content">
+      <video id="videoPlayer" controls>
+        <source src="ivideyaxhub.mp4" type="video/mp4">
+        Your browser does not support video playback.
+      </video>
+      <button class="close-btn" id="closeModal">Close ✖</button>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('videoModal');
+    const playBtn = document.getElementById('playBtn');
+    const closeBtn = document.getElementById('closeModal');
+    const video = document.getElementById('videoPlayer');
+
+    playBtn.addEventListener('click', () => {
+      modal.classList.add('active');
+      video.play();
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+      video.pause();
+    });
+  </script>
 </body>
 </html>
