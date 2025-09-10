@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://niteplayhub.github.io/niteplayhub/sitemap.xml
+Sitemap: https://niteplayhub.github.io/sitemap.xml
