@@ -1,181 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NitePlay — More Videos</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif;}
-
-    body {
-      background: radial-gradient(circle at top, #1a1a2e, #0d0b1a);
-      color:#fff;
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      padding:20px;
-    }
-
-    header {
-      text-align:center;
-      margin-bottom:30px;
-    }
-    header h1 {
-      font-size:2.5rem;
-      font-weight:800;
-      background:linear-gradient(45deg,#ff006e,#6a00f4);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
-    header p {
-      color:#ccc;
-      margin-top:8px;
-    }
-
-    .gallery {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-      gap:20px;
-    }
-
-    .video-card {
-      background:#111;
-      border-radius:15px;
-      overflow:hidden;
-      box-shadow:0 0 15px rgba(106,0,244,0.4);
-      cursor:pointer;
-      transition:transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .video-card:hover {
-      transform:scale(1.05);
-      box-shadow:0 0 25px rgba(255,0,110,0.7);
-    }
-    .video-card img {
-      width:100%;
-      display:block;
-    }
-    .video-info {
-      padding:12px;
-    }
-    .video-info h3 {
-      font-size:1rem;
-      margin-bottom:6px;
-      color:#fff;
-    }
-    .video-info p {
-      font-size:0.85rem;
-      color:#bbb;
-    }
-
-    /* --- Modal Style --- */
-    .modal {
-      position:fixed;
-      top:0; left:0;
-      width:100%; height:100%;
-      background:rgba(0,0,0,0.85);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      visibility:hidden;
-      opacity:0;
-      transition:all 0.3s ease;
-      z-index:100;
-    }
-    .modal.active {visibility:visible; opacity:1;}
-
-    .modal-content {
-      background:#0d0b1a;
-      padding:20px;
-      border-radius:15px;
-      max-width:90%;
-      max-height:80%;
-      box-shadow:0 0 25px rgba(255,0,110,0.8);
-    }
-    .modal video {
-      width:100%;
-      border-radius:10px;
-    }
-    .close-btn {
-      display:block;
-      margin:12px auto 0;
-      background:#ff006e;
-      color:#fff;
-      padding:8px 20px;
-      border:none;
-      border-radius:20px;
-      cursor:pointer;
-      font-weight:600;
-    }
-    .close-btn:hover {background:#6a00f4;}
-  </style>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>NitePlay — Library</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>🎬 NitePlay Library</h1>
-    <p>Explore more premium videos</p>
+  <header class="header">
+    <div class="logo">NitePlay</div>
+    <div class="tag">Premium late-night videos — click a thumbnail to watch</div>
   </header>
 
-  <section class="gallery">
-    <!-- Video Card 1 -->
-    <div class="video-card" data-video="ivideyaxhub.mp4">
-      <img src="https://placehold.co/400x250/6a00f4/fff?text=Video+1" alt="Video 1">
-      <div class="video-info">
-        <h3>Exclusive Clip 1</h3>
-        <p>Premium short video</p>
-      </div>
-    </div>
+  <main class="container">
+    <section id="gallery" class="gallery" aria-live="polite">
+      <!-- cards injected here -->
+    </section>
+  </main>
 
-    <!-- Video Card 2 -->
-    <div class="video-card" data-video="ivideyaxhub.mp4">
-      <img src="https://placehold.co/400x250/ff006e/fff?text=Video+2" alt="Video 2">
-      <div class="video-info">
-        <h3>Exclusive Clip 2</h3>
-        <p>Premium short video</p>
+  <!-- Modal player -->
+  <div id="modal" class="modal" role="dialog" aria-hidden="true">
+    <div class="modal-box" role="document">
+      <div class="player">
+        <video id="player" controls playsinline preload="metadata">
+          <source id="playerSrc" src="" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
       </div>
-    </div>
 
-    <!-- Video Card 3 -->
-    <div class="video-card" data-video="ivideyaxhub.mp4">
-      <img src="https://placehold.co/400x250/1a1a2e/fff?text=Video+3" alt="Video 3">
-      <div class="video-info">
-        <h3>Exclusive Clip 3</h3>
-        <p>Premium short video</p>
+      <div class="player-foot">
+        <div id="pTitle" style="font-weight:700"></div>
+        <div class="controls">
+          <a id="downloadBtn" class="btn ghost" target="_blank" rel="noopener">⬇ Download</a>
+          <button id="shareBtn" class="btn">🔗 Share</button>
+          <button id="closeBtn" class="btn">Close ✖</button>
+        </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Modal Player -->
-  <div class="modal" id="videoModal">
-    <div class="modal-content">
-      <video id="videoPlayer" controls>
-        <source src="" type="video/mp4">
-        Your browser does not support video playback.
-      </video>
-      <button class="close-btn" id="closeModal">Close ✖</button>
+      <div class="ad-slot" id="adSlot">🔥 Ad slot 300×250 — replace with ad code later</div>
     </div>
   </div>
 
   <script>
-    const cards = document.querySelectorAll('.video-card');
-    const modal = document.getElementById('videoModal');
-    const video = document.getElementById('videoPlayer');
-    const closeBtn = document.getElementById('closeModal');
+    // load videos.json and render gallery
+    async function loadGallery(){
+      try {
+        const res = await fetch('videos.json', {cache: "no-store"});
+        if(!res.ok) throw new Error('videos.json not found');
+        const videos = await res.json();
+        const gallery = document.getElementById('gallery');
+        gallery.innerHTML = videos.map(v => `
+          <article class="card" data-src="${encodeURI(v.src)}" data-title="${escapeHtml(v.title)}">
+            <img loading="lazy" src="${v.thumbnail}" alt="${escapeHtml(v.title)}">
+            <div class="info">
+              <h3>${escapeHtml(v.title)}</h3>
+              <p>${v.duration || ''}</p>
+            </div>
+          </article>
+        `).join('');
+        // attach click handlers
+        document.querySelectorAll('.card').forEach(card => {
+          card.addEventListener('click', ()=> openPlayer(card.dataset.src, card.dataset.title) );
+        });
+      } catch (err) {
+        console.error(err);
+        document.getElementById('gallery').innerHTML = '<p style="color:#ccc">Failed to load video list.</p>';
+      }
+    }
 
-    cards.forEach(card => {
-      card.addEventListener('click', () => {
-        const src = card.getAttribute('data-video');
-        video.querySelector('source').src = src;
-        video.load();
-        modal.classList.add('active');
-        video.play();
-      });
+    function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;', "'":'&#39;' }[c])); }
+
+    // Player modal logic
+    const modal = document.getElementById('modal');
+    const player = document.getElementById('player');
+    const playerSrc = document.getElementById('playerSrc');
+    const pTitle = document.getElementById('pTitle');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const shareBtn = document.getElementById('shareBtn');
+    const closeBtn = document.getElementById('closeBtn');
+
+    function openPlayer(src, title){
+      playerSrc.src = src;
+      player.load();
+      pTitle.textContent = title || 'Video';
+      downloadBtn.href = src;
+      modal.classList.add('show');
+      modal.setAttribute('aria-hidden','false');
+      setTimeout(()=> player.play().catch(()=>{}), 120);
+    }
+
+    function closePlayer(){
+      player.pause();
+      playerSrc.src = '';
+      player.load();
+      modal.classList.remove('show');
+      modal.setAttribute('aria-hidden','true');
+    }
+
+    closeBtn.addEventListener('click', closePlayer);
+    modal.addEventListener('click', e => { if(e.target === modal) closePlayer(); });
+    document.addEventListener('keydown', e => { if(e.key === 'Escape' && modal.classList.contains('show')) closePlayer(); });
+
+    // share/copy logic
+    shareBtn.addEventListener('click', async ()=>{
+      const url = playerSrc.src;
+      if(navigator.share){
+        try { await navigator.share({title: pTitle.textContent, url}); return; } catch(_) {}
+      }
+      try {
+        await navigator.clipboard.writeText(url);
+        alert('Link copied to clipboard');
+      } catch(e){
+        prompt('Copy this link', url);
+      }
     });
 
-    closeBtn.addEventListener('click', () => {
-      modal.classList.remove('active');
-      video.pause();
-    });
+    // start
+    loadGallery();
   </script>
 </body>
 </html>
