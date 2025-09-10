@@ -27,6 +27,10 @@
   <!-- Favicon -->
   <link rel="icon" href="https://niteplayhub.github.io/assets/favicon.png" type="image/png">
 
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
   <!-- Styles -->
   <link rel="stylesheet" href="style.css">
 
@@ -52,7 +56,10 @@
     <p class="tag">Exclusive premium videos — updated daily, smooth streaming, zero hassle</p>
 
     <div class="video-wrapper" id="mainPlay" role="button" aria-label="Play main video">
-      <img src="assets/thumb1.jpg" alt="Main video thumbnail">
+      <picture>
+        <source srcset="assets/thumb1.webp" type="image/webp">
+        <img src="assets/thumb1.jpg" alt="Main video thumbnail" loading="lazy">
+      </picture>
       <div class="video-overlay">
         <div class="play-circle"></div>
       </div>
@@ -70,9 +77,7 @@
   <div id="videoModal" class="modal" aria-hidden="true">
     <div class="modal-box" role="dialog" aria-modal="true">
       <span class="close-btn" id="closeModal" title="Close">×</span>
-      <video id="modalVideo" controls poster="assets/thumb1.jpg">
-        <source src="https://videyaxhub.github.io/ivideyaxhub.mp4" type="video/mp4">
-      </video>
+      <video id="modalVideo" controls poster="assets/thumb1.jpg"></video>
       <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:10px">
         <a id="downloadBtn" class="btn" href="https://videyaxhub.github.io/ivideyaxhub.mp4" target="_blank">⬇ Download</a>
         <button id="shareBtn" class="btn">🔗 Share</button>
@@ -119,6 +124,8 @@
     function openModal(url){
       modal.classList.add('show');
       modal.setAttribute('aria-hidden','false');
+      modalVideo.innerHTML = `<source src="${url}" type="video/mp4">`;
+      modalVideo.load();
       modalVideo.play().catch(()=>{});
       downloadBtn.href = url;
     }
@@ -126,6 +133,7 @@
       modal.classList.remove('show');
       modal.setAttribute('aria-hidden','true');
       modalVideo.pause();
+      modalVideo.innerHTML = "";
     }
     playMain.addEventListener('click', ()=> openModal('https://videyaxhub.github.io/ivideyaxhub.mp4'));
     mainPlay.addEventListener('click', ()=> openModal('https://videyaxhub.github.io/ivideyaxhub.mp4'));
