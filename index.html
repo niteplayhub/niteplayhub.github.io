@@ -1,73 +1,75 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NitePlay — Premium Adult Videos</title>
-  <meta name="description" content="Welcome to NitePlay. Explore premium adult videos with style.">
+  <title>NitePlay — Premium Video Experience</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(180deg, #0a0a0f, #1a1a2e);
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #1a1a2e, #0d0b1a);
       color: #fff;
+      height: 100vh;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      flex-direction: column;
       text-align: center;
     }
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-      color: #b5179e;
+
+    .logo {
+      font-size: 3rem;
+      font-weight: 800;
+      background: linear-gradient(45deg, #ff006e, #6a00f4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 15px;
+      animation: glow 2s infinite alternate;
     }
-    p {
-      margin-bottom: 30px;
-      color: #aaa;
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff006e; }
+      to { text-shadow: 0 0 25px #6a00f4; }
     }
+
+    .headline {
+      font-size: 1.2rem;
+      color: #ccc;
+      margin-bottom: 40px;
+    }
+
     .btn {
       display: inline-block;
-      padding: 14px 28px;
       margin: 10px;
-      border-radius: 8px;
+      padding: 14px 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
       text-decoration: none;
-      font-size: 18px;
-      font-weight: bold;
-      transition: all 0.3s ease;
+      border-radius: 30px;
+      background: linear-gradient(45deg, #ff006e, #6a00f4);
+      box-shadow: 0 0 15px rgba(255, 0, 110, 0.5);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .btn-play {
-      background: #b5179e;
-      color: #fff;
-    }
-    .btn-play:hover {
-      background: #ff006e;
-      transform: scale(1.05);
-    }
-    .btn-more {
-      background: #3a0ca3;
-      color: #fff;
-    }
-    .btn-more:hover {
-      background: #4361ee;
-      transform: scale(1.05);
-    }
-    footer {
-      position: absolute;
-      bottom: 15px;
-      font-size: 14px;
-      color: #666;
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 25px rgba(106, 0, 244, 0.8);
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to <span style="color:#ff006e;">NitePlay</span></h1>
-  <p>Premium entertainment for your late nights.</p>
-  <a href="https://videyaxhub.github.io/ivideyaxhub.mp4" class="btn btn-play">▶ Play Now</a>
-  <a href="more.html" class="btn btn-more">More Videos</a>
+  <h1 class="logo">NitePlay</h1>
+  <p class="headline">Your Premium Late Night Video Destination</p>
 
-  <footer>© 2025 NitePlay. All Rights Reserved.</footer>
+  <a href="ivideyaxhub.mp4" class="btn">▶ Play Now</a>
+  <a href="more.html" class="btn">📺 More Videos</a>
 </body>
 </html>
