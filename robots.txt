@@ -1,1 +1,4 @@
+User-agent: *
+Allow: /
 
+Sitemap: https://niteplayhub.github.io/niteplay-repo/sitemap.xml
