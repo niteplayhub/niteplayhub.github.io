@@ -14,34 +14,59 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Video entries -->
+  <!-- Video 1 -->
   <url>
     <loc>https://niteplayhub.github.io/more.html</loc>
     <video:video>
       <video:thumbnail_loc>https://niteplayhub.github.io/assets/thumb1.jpg</video:thumbnail_loc>
       <video:title>Exclusive Clip 1</video:title>
-      <video:description>Exclusive premium clip on NitePlay.</video:description>
+      <video:description>Exclusive premium clip from NitePlay.</video:description>
       <video:content_loc>https://videyaxhub.github.io/ivideyaxhub.mp4</video:content_loc>
     </video:video>
   </url>
 
+  <!-- Video 2 -->
   <url>
     <loc>https://niteplayhub.github.io/more.html</loc>
     <video:video>
       <video:thumbnail_loc>https://niteplayhub.github.io/assets/thumb2.jpg</video:thumbnail_loc>
       <video:title>Exclusive Clip 2</video:title>
-      <video:description>Another exclusive premium clip on NitePlay.</video:description>
+      <video:description>Exclusive premium clip from NitePlay.</video:description>
       <video:content_loc>https://videyaxhub.github.io/ivideyaxhub2.mp4</video:content_loc>
     </video:video>
   </url>
 
+  <!-- Video 3 -->
   <url>
     <loc>https://niteplayhub.github.io/more.html</loc>
     <video:video>
       <video:thumbnail_loc>https://niteplayhub.github.io/assets/thumb3.jpg</video:thumbnail_loc>
       <video:title>Exclusive Clip 3</video:title>
-      <video:description>Exclusive premium clip on NitePlay.</video:description>
+      <video:description>Exclusive premium clip from NitePlay.</video:description>
       <video:content_loc>https://videyaxhub.github.io/ivideyaxhub3.mp4</video:content_loc>
     </video:video>
   </url>
+
+  <!-- Video 4 -->
+  <url>
+    <loc>https://niteplayhub.github.io/more.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://niteplayhub.github.io/assets/thumb4.jpg</video:thumbnail_loc>
+      <video:title>Exclusive Clip 4</video:title>
+      <video:description>Exclusive premium clip from NitePlay.</video:description>
+      <video:content_loc>https://videyaxhub.github.io/ivideyaxhub4.mp4</video:content_loc>
+    </video:video>
+  </url>
+
+  <!-- Video 5 -->
+  <url>
+    <loc>https://niteplayhub.github.io/more.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://niteplayhub.github.io/assets/thumb5.jpg</video:thumbnail_loc>
+      <video:title>Exclusive Clip 5</video:title>
+      <video:description>Exclusive premium clip from NitePlay.</video:description>
+      <video:content_loc>https://videyaxhub.github.io/ivideyaxhub5.mp4</video:content_loc>
+    </video:video>
+  </url>
+
 </urlset>
