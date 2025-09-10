@@ -6,20 +6,19 @@
   <title>NitePlay — Premium Video Hub</title>
 
   <!-- SEO -->
-  <meta name="description" content="NitePlay — premium late-night video hub. Exclusive, high-quality videos with smooth streaming. Watch now.">
+  <meta name="description" content="NitePlay — premium late-night video hub. Exclusive, high-quality videos with smooth streaming.">
   <meta name="keywords" content="NitePlay, premium videos, streaming, exclusive clips">
-  <meta name="author" content="NitePlay Team">
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://niteplayhub.github.io/">
 
-  <!-- Open Graph (Facebook / WhatsApp / Telegram preview) -->
+  <!-- Open Graph -->
   <meta property="og:type" content="video.other">
   <meta property="og:title" content="NitePlay — Premium Video Hub">
   <meta property="og:description" content="Exclusive premium videos — updated daily, smooth streaming.">
   <meta property="og:image" content="https://niteplayhub.github.io/assets/thumb1.jpg">
   <meta property="og:url" content="https://niteplayhub.github.io/">
 
-  <!-- Twitter Card -->
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="NitePlay — Premium Video Hub">
   <meta name="twitter:description" content="Exclusive premium videos — updated daily, smooth streaming.">
@@ -31,41 +30,23 @@
   <!-- Styles -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- JSON-LD VideoObject (main video) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    "name": "Exclusive Clip 1",
-    "description": "Exclusive premium clip on NitePlay.",
-    "thumbnailUrl": [
-      "https://niteplayhub.github.io/assets/thumb1.jpg"
-    ],
-    "uploadDate": "2025-09-10",
-    "contentUrl": "https://videyaxhub.github.io/ivideyaxhub.mp4",
-    "embedUrl": "https://videyaxhub.github.io/ivideyaxhub.mp4",
-    "interactionStatistic": {
-      "@type": "InteractionCounter",
-      "interactionType": { "@type": "WatchAction" },
-      "userInteractionCount": 0
-    }
-  }
-  </script>
-
-  <style>
-    /* minimal modal styles (in case style.css missing these) */
-    .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;z-index:1200}
-    .modal.show{display:flex}
-    .modal-box{width:90%;max-width:900px;background:#0b0b0d;padding:18px;border-radius:12px}
-    .modal-box video{width:100%;height:auto;border-radius:8px}
-    .close-btn{position:absolute;right:18px;top:14px;font-size:26px;color:#fff;cursor:pointer}
-  </style>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+  <!-- Navbar -->
   <header class="header">
-    <div class="logo">NitePlay</div>
+    <div class="navbar">
+      <div class="logo">NitePlay</div>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="more.html">More</a>
+      </nav>
+      <div class="menu-toggle" id="menuToggle">☰</div>
+    </div>
   </header>
 
+  <!-- Hero -->
   <section class="hero" aria-labelledby="hero-title">
     <h1 id="hero-title">Welcome to NitePlay</h1>
     <p class="tag">Exclusive premium videos — updated daily, smooth streaming, zero hassle</p>
@@ -73,7 +54,7 @@
     <div class="video-wrapper" id="mainPlay" role="button" aria-label="Play main video">
       <img src="assets/thumb1.jpg" alt="Main video thumbnail">
       <div class="video-overlay">
-        <div class="play-circle" aria-hidden="true"></div>
+        <div class="play-circle"></div>
       </div>
     </div>
 
@@ -85,37 +66,48 @@
 
   <div class="ad-slot">🚀 Ad slot — replace with your ad code later</div>
 
-  <!-- Modal Player -->
+  <!-- Modal -->
   <div id="videoModal" class="modal" aria-hidden="true">
     <div class="modal-box" role="dialog" aria-modal="true">
       <span class="close-btn" id="closeModal" title="Close">×</span>
-      <video id="modalVideo" controls poster="https://niteplayhub.github.io/assets/thumb1.jpg">
+      <video id="modalVideo" controls poster="assets/thumb1.jpg">
         <source src="https://videyaxhub.github.io/ivideyaxhub.mp4" type="video/mp4">
-        Your browser does not support HTML5 video.
       </video>
-
       <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:10px">
-        <a id="downloadBtn" class="btn" href="https://videyaxhub.github.io/ivideyaxhub.mp4" target="_blank" rel="noopener">⬇ Download</a>
+        <a id="downloadBtn" class="btn" href="https://videyaxhub.github.io/ivideyaxhub.mp4" target="_blank">⬇ Download</a>
         <button id="shareBtn" class="btn">🔗 Share</button>
       </div>
     </div>
   </div>
 
+  <!-- Footer -->
   <footer class="footer">
     <div class="social">
-      <a href="https://t.me/yourchannel" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-      <a href="https://twitter.com/yourhandle" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-      <a href="https://facebook.com/yourpage" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://t.me/yourchannel" target="_blank"><i class="fab fa-telegram"></i></a>
+      <a href="https://twitter.com/yourhandle" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://facebook.com/yourpage" target="_blank"><i class="fab fa-facebook"></i></a>
     </div>
     <p>© 2025 NitePlay. All rights reserved.</p>
   </footer>
 
-  <!-- Font Awesome for icons (footer) -->
-  <script src="https://kit.fontawesome.com/your_kit_id.js" crossorigin="anonymous"></script>
-  <!-- Optional: you can remove the above and keep icon <i> tags or link the CDN CSS as before -->
-
+  <!-- Scripts -->
   <script>
-    // Modal + play logic
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    const header = document.querySelector('.header');
+    menuToggle.addEventListener('click', () => navLinks.classList.toggle('show'));
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.remove('transparent');
+        header.classList.add('solid');
+      } else {
+        header.classList.remove('solid');
+        header.classList.add('transparent');
+      }
+    });
+    header.classList.add('transparent');
+
     const modal = document.getElementById('videoModal');
     const modalVideo = document.getElementById('modalVideo');
     const playMain = document.getElementById('playMain');
@@ -127,42 +119,27 @@
     function openModal(url){
       modal.classList.add('show');
       modal.setAttribute('aria-hidden','false');
-      // set src only when opening to avoid preloading too early
-      if(url) {
-        modalVideo.querySelector('source').src = url;
-        modalVideo.load();
-      }
       modalVideo.play().catch(()=>{});
-      downloadBtn.href = url || downloadBtn.href;
+      downloadBtn.href = url;
     }
-
     function closeModalFunc(){
       modal.classList.remove('show');
       modal.setAttribute('aria-hidden','true');
       modalVideo.pause();
-      modalVideo.querySelector('source').src = "";
-      modalVideo.load();
     }
-
     playMain.addEventListener('click', ()=> openModal('https://videyaxhub.github.io/ivideyaxhub.mp4'));
     mainPlay.addEventListener('click', ()=> openModal('https://videyaxhub.github.io/ivideyaxhub.mp4'));
     closeModal.addEventListener('click', closeModalFunc);
     modal.addEventListener('click', (e)=> { if(e.target === modal) closeModalFunc(); });
     document.addEventListener('keydown', (e)=> { if(e.key === 'Escape') closeModalFunc(); });
 
-    // Share button: navigator.share or clipboard fallback
     shareBtn.addEventListener('click', async () => {
       const url = 'https://videyaxhub.github.io/ivideyaxhub.mp4';
-      const title = document.title;
       if (navigator.share) {
-        try { await navigator.share({ title, url }); return; } catch(_) {}
+        try { await navigator.share({ title: document.title, url }); return; } catch(_) {}
       }
-      try {
-        await navigator.clipboard.writeText(url);
-        alert('Link copied to clipboard');
-      } catch {
-        prompt('Copy this link', url);
-      }
+      try { await navigator.clipboard.writeText(url); alert('Link copied!'); }
+      catch { prompt('Copy this link', url); }
     });
   </script>
 </body>
