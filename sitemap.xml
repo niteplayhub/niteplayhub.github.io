@@ -1,15 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+  <!-- Homepage -->
   <url>
     <loc>https://niteplayhub.github.io/</loc>
-    <lastmod>2025-09-10</lastmod>
-    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- More page -->
   <url>
     <loc>https://niteplayhub.github.io/more.html</loc>
-    <lastmod>2025-09-10</lastmod>
-    <changefreq>daily</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <!-- Video entries -->
+  <url>
+    <loc>https://niteplayhub.github.io/more.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://niteplayhub.github.io/assets/thumb1.jpg</video:thumbnail_loc>
+      <video:title>Exclusive Clip 1</video:title>
+      <video:description>Exclusive premium clip on NitePlay.</video:description>
+      <video:content_loc>https://videyaxhub.github.io/ivideyaxhub.mp4</video:content_loc>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://niteplayhub.github.io/more.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://niteplayhub.github.io/assets/thumb2.jpg</video:thumbnail_loc>
+      <video:title>Exclusive Clip 2</video:title>
+      <video:description>Another exclusive premium clip on NitePlay.</video:description>
+      <video:content_loc>https://videyaxhub.github.io/ivideyaxhub2.mp4</video:content_loc>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://niteplayhub.github.io/more.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://niteplayhub.github.io/assets/thumb3.jpg</video:thumbnail_loc>
+      <video:title>Exclusive Clip 3</video:title>
+      <video:description>Exclusive premium clip on NitePlay.</video:description>
+      <video:content_loc>https://videyaxhub.github.io/ivideyaxhub3.mp4</video:content_loc>
+    </video:video>
   </url>
 </urlset>
