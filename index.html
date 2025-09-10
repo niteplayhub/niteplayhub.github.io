@@ -4,74 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>NitePlay — Premium Video Hub</title>
-
-  <!-- SEO -->
-  <meta name="description" content="Discover NitePlay, your premium video hub. Exclusive high-quality videos, fast streaming, and daily updates — all in one place.">
-  <meta name="keywords" content="NitePlay, premium videos, exclusive streaming, daily video hub, watch online">
-  <meta name="author" content="NitePlay Team">
-
-  <!-- Open Graph (FB, WA, Telegram) -->
-  <meta property="og:title" content="NitePlay — Premium Video Hub">
-  <meta property="og:description" content="Exclusive high-quality videos, fast streaming, updated daily. Watch now on NitePlay.">
-  <meta property="og:image" content="https://niteplayhub.github.io/assets/thumb1.jpg">
-  <meta property="og:url" content="https://niteplayhub.github.io/">
-  <meta property="og:type" content="website">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="NitePlay — Premium Video Hub">
-  <meta name="twitter:description" content="Exclusive high-quality videos, fast streaming, updated daily.">
-  <meta name="twitter:image" content="https://niteplayhub.github.io/assets/thumb1.jpg">
-
-  <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="stylesheet" href="style.css">
-
-  <style>
-    /* Modal Player */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.85);
-      justify-content: center;
-      align-items: center;
-    }
-    .modal-content {
-      position: relative;
-      max-width: 900px;
-      width: 90%;
-      background: #111;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 25px rgba(0,0,0,0.6);
-    }
-    .modal video {
-      width: 100%;
-      border-radius: 8px;
-    }
-    .close-btn {
-      position: absolute;
-      top: 10px; right: 14px;
-      font-size: 28px;
-      color: #fff;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .close-btn:hover {
-      color: #ff4c4c;
-    }
-  </style>
 </head>
 <body>
   <header class="header">
     <div class="logo">NitePlay</div>
-    <p class="tag">Exclusive premium videos — just one click away</p>
   </header>
 
-  <main class="container" style="text-align:center; margin-top:40px;">
-    <img src="https://niteplayhub.github.io/assets/thumb1.jpg" alt="Main Video" style="width:90%;max-width:800px;border-radius:12px;box-shadow:0 0 25px rgba(106,0,244,0.4);cursor:pointer;" id="mainPlay">
+  <p class="tag">Exclusive premium videos — just one click away</p>
+
+  <main class="container" style="text-align:center; margin-top:20px;">
+    <img src="assets/thumb1.jpg" alt="Main Video" class="main-video" id="mainPlay">
 
     <div style="margin-top:24px;">
       <button id="playMain" class="btn">▶ Play Video</button>
@@ -84,15 +27,16 @@
   </main>
 
   <!-- Modal Player -->
-  <div id="videoModal" class="modal">
+  <div id="videoModal" class="modal" style="display:none;">
     <div class="modal-content">
       <span class="close-btn">&times;</span>
-      <video id="modalVideo" controls poster="https://niteplayhub.github.io/assets/thumb1.jpg">
+      <video id="modalVideo" controls poster="assets/thumb1.jpg">
         <source src="https://videyaxhub.github.io/ivideyaxhub.mp4" type="video/mp4">
       </video>
     </div>
   </div>
-<footer class="footer">
+
+  <footer class="footer">
     <p>© 2025 NitePlay. All rights reserved.</p>
     <p>
       <a href="https://t.me/yourchannel" target="_blank">Telegram</a> |
@@ -100,6 +44,7 @@
       <a href="https://facebook.com/yourpage" target="_blank">Facebook</a>
     </p>
   </footer>
+
   <script>
     const modal = document.getElementById('videoModal');
     const modalVideo = document.getElementById('modalVideo');
