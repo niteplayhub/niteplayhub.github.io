@@ -1,153 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NitePlay — Premium Video Hub</title>
-
-  <!-- SEO -->
-  <meta name="description" content="NitePlay — premium late-night video hub. Exclusive, high-quality videos with smooth streaming.">
-  <meta name="keywords" content="NitePlay, premium videos, streaming, exclusive clips">
-  <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://niteplayhub.github.io/">
+  <meta name="description" content="Welcome to NitePlay — your premium hub for exclusive video content. Elegant, fast, and SEO-optimized for the best streaming experience.">
 
   <!-- Open Graph -->
-  <meta property="og:type" content="video.other">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NitePlay">
   <meta property="og:title" content="NitePlay — Premium Video Hub">
-  <meta property="og:description" content="Exclusive premium videos — updated daily, smooth streaming.">
-  <meta property="og:image" content="https://niteplayhub.github.io/assets/thumb1.jpg">
+  <meta property="og:description" content="Watch exclusive premium video content only on NitePlay.">
   <meta property="og:url" content="https://niteplayhub.github.io/">
+  <meta property="og:image" content="https://niteplayhub.github.io/assets/thumb1.jpg">
 
-  <!-- Twitter -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@niteplay">
   <meta name="twitter:title" content="NitePlay — Premium Video Hub">
-  <meta name="twitter:description" content="Exclusive premium videos — updated daily, smooth streaming.">
+  <meta name="twitter:description" content="Watch exclusive premium video content only on NitePlay.">
   <meta name="twitter:image" content="https://niteplayhub.github.io/assets/thumb1.jpg">
 
-  <!-- Favicon -->
-  <link rel="icon" href="https://niteplayhub.github.io/assets/favicon.png" type="image/png">
+  <!-- Schema.org WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "NitePlay",
+    "url": "https://niteplayhub.github.io/",
+    "description": "Welcome to NitePlay — your premium hub for exclusive video content.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "NitePlay",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://niteplayhub.github.io/assets/thumb1.jpg"
+      }
+    }
+  }
+  </script>
 
-  <!-- Preconnect for performance -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-
-  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <!-- Navbar -->
-  <header class="header">
-    <div class="navbar">
+  <!-- Header -->
+  <header class="header transparent">
+    <nav class="navbar">
       <div class="logo">NitePlay</div>
-      <nav class="nav-links" id="navLinks">
+      <div class="menu-toggle">☰</div>
+      <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="more.html">More</a>
-      </nav>
-      <div class="menu-toggle" id="menuToggle">☰</div>
-    </div>
+      </div>
+    </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="hero" aria-labelledby="hero-title">
-    <h1 id="hero-title">Welcome to NitePlay</h1>
-    <p class="tag">Exclusive premium videos — updated daily, smooth streaming, zero hassle</p>
-
-    <div class="video-wrapper" id="mainPlay" role="button" aria-label="Play main video">
-      <picture>
-        <source srcset="assets/thumb1.webp" type="image/webp">
-        <img src="assets/thumb1.jpg" alt="Main video thumbnail" loading="lazy">
-      </picture>
-      <div class="video-overlay">
-        <div class="play-circle"></div>
-      </div>
-    </div>
-
-    <div style="margin-top:22px;">
-      <button id="playMain" class="btn">▶ Play Video</button>
-      <a href="more.html" class="btn">📺 More Videos</a>
-    </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to NitePlay</h1>
+    <p>Your premium hub for exclusive video experiences.</p>
   </section>
 
-  <div class="ad-slot">🚀 Ad slot — replace with your ad code later</div>
+  <!-- Main Featured Video -->
+  <div class="video-wrapper" onclick="openModal('https://videyaxhub.github.io/ivideyaxhub.mp4')">
+    <picture>
+      <source srcset="assets/thumb1.webp" type="image/webp">
+      <img src="assets/thumb1.jpg" alt="Featured Video" loading="lazy">
+    </picture>
+    <div class="video-overlay">
+      <div class="play-circle"></div>
+    </div>
+  </div>
 
-  <!-- Modal -->
-  <div id="videoModal" class="modal" aria-hidden="true">
-    <div class="modal-box" role="dialog" aria-modal="true">
-      <span class="close-btn" id="closeModal" title="Close">×</span>
-      <video id="modalVideo" controls poster="assets/thumb1.jpg"></video>
-      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:10px">
-        <a id="downloadBtn" class="btn" href="https://videyaxhub.github.io/ivideyaxhub.mp4" target="_blank">⬇ Download</a>
-        <button id="shareBtn" class="btn">🔗 Share</button>
-      </div>
+  <!-- Buttons -->
+  <div style="text-align:center; margin-top:30px;">
+    <a href="https://videyaxhub.github.io/ivideyaxhub.mp4" class="btn" target="_blank">Play Now</a>
+    <a href="more.html" class="btn">More Videos</a>
+  </div>
+
+  <!-- Ad Slot -->
+  <div class="ad-slot">Ad Space — Your Ad Here</div>
+
+  <!-- Modal Player -->
+  <div class="modal" id="videoModal">
+    <div class="modal-box">
+      <span class="close-btn" id="closeModal">&times;</span>
+      <video id="modalVideo" controls></video>
     </div>
   </div>
 
   <!-- Footer -->
   <footer class="footer">
     <div class="social">
-      <a href="https://t.me/yourchannel" target="_blank"><i class="fab fa-telegram"></i></a>
-      <a href="https://twitter.com/yourhandle" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a href="https://facebook.com/yourpage" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://facebook.com/sharer/sharer.php?u=https://niteplayhub.github.io/" target="_blank">📘</a>
+      <a href="https://t.me/share/url?url=https://niteplayhub.github.io/" target="_blank">✈️</a>
+      <a href="https://twitter.com/intent/tweet?url=https://niteplayhub.github.io/" target="_blank">🐦</a>
     </div>
-    <p>© 2025 NitePlay. All rights reserved.</p>
+    <p>&copy; 2025 NitePlay. All rights reserved.</p>
   </footer>
 
   <!-- Scripts -->
   <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
+    // Navbar scroll effect
     const header = document.querySelector('.header');
-    menuToggle.addEventListener('click', () => navLinks.classList.toggle('show'));
-
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        header.classList.remove('transparent');
-        header.classList.add('solid');
-      } else {
-        header.classList.remove('solid');
-        header.classList.add('transparent');
-      }
+      header.classList.toggle('solid', window.scrollY > 50);
+      header.classList.toggle('transparent', window.scrollY <= 50);
     });
-    header.classList.add('transparent');
 
+    // Toggle menu mobile
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+
+    // Modal controls
     const modal = document.getElementById('videoModal');
     const modalVideo = document.getElementById('modalVideo');
-    const playMain = document.getElementById('playMain');
-    const mainPlay = document.getElementById('mainPlay');
     const closeModal = document.getElementById('closeModal');
-    const shareBtn = document.getElementById('shareBtn');
-    const downloadBtn = document.getElementById('downloadBtn');
 
-    function openModal(url){
+    function openModal(src) {
       modal.classList.add('show');
-      modal.setAttribute('aria-hidden','false');
-      modalVideo.innerHTML = `<source src="${url}" type="video/mp4">`;
-      modalVideo.load();
-      modalVideo.play().catch(()=>{});
-      downloadBtn.href = url;
+      modalVideo.src = src;
+      modalVideo.play();
     }
-    function closeModalFunc(){
+    closeModal.addEventListener('click', () => {
       modal.classList.remove('show');
-      modal.setAttribute('aria-hidden','true');
       modalVideo.pause();
-      modalVideo.innerHTML = "";
-    }
-    playMain.addEventListener('click', ()=> openModal('https://videyaxhub.github.io/ivideyaxhub.mp4'));
-    mainPlay.addEventListener('click', ()=> openModal('https://videyaxhub.github.io/ivideyaxhub.mp4'));
-    closeModal.addEventListener('click', closeModalFunc);
-    modal.addEventListener('click', (e)=> { if(e.target === modal) closeModalFunc(); });
-    document.addEventListener('keydown', (e)=> { if(e.key === 'Escape') closeModalFunc(); });
-
-    shareBtn.addEventListener('click', async () => {
-      const url = 'https://videyaxhub.github.io/ivideyaxhub.mp4';
-      if (navigator.share) {
-        try { await navigator.share({ title: document.title, url }); return; } catch(_) {}
-      }
-      try { await navigator.clipboard.writeText(url); alert('Link copied!'); }
-      catch { prompt('Copy this link', url); }
+      modalVideo.src = '';
     });
   </script>
 </body>
