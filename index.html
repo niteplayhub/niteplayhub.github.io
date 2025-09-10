@@ -1,162 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NitePlay — Premium Video Experience</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif;}
-
-    body {
-      background: radial-gradient(circle at top, #1a1a2e, #0d0b1a);
-      color:#fff;
-      height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      flex-direction:column;
-      text-align:center;
-      overflow:hidden;
-    }
-
-    .logo {
-      font-size:3.5rem;
-      font-weight:800;
-      background:linear-gradient(45deg,#ff006e,#6a00f4);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      margin-bottom:15px;
-    }
-
-    .headline {
-      font-size:1.3rem;
-      color:#ccc;
-      margin-bottom:40px;
-    }
-
-    .btn {
-      display:inline-block;
-      margin:10px;
-      padding:14px 32px;
-      font-size:1rem;
-      font-weight:600;
-      color:#fff;
-      text-decoration:none;
-      border-radius:30px;
-      background:linear-gradient(45deg,#ff006e,#6a00f4);
-      box-shadow:0 0 15px rgba(255,0,110,0.5);
-      transition:transform 0.2s ease,box-shadow 0.2s ease;
-      cursor:pointer;
-    }
-    .btn:hover {transform:translateY(-4px) scale(1.05); box-shadow:0 0 25px rgba(106,0,244,0.8);}
-
-    /* --- Modal Style --- */
-    .modal {
-      position:fixed;
-      top:0; left:0;
-      width:100%; height:100%;
-      background:rgba(0,0,0,0.8);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      visibility:hidden;
-      opacity:0;
-      transition:all 0.3s ease;
-      z-index:100;
-    }
-    .modal.active {
-      visibility:visible;
-      opacity:1;
-    }
-    .modal-content {
-      background:#0d0b1a;
-      padding:20px;
-      border-radius:15px;
-      box-shadow:0 0 25px rgba(106,0,244,0.7);
-      max-width:90%;
-      max-height:80%;
-    }
-    .modal video {
-      width:100%;
-      height:auto;
-      border-radius:10px;
-    }
-
-    .ad-slot {
-      margin-top:15px;
-      background:#111;
-      border:2px dashed #6a00f4;
-      color:#ff006e;
-      padding:20px;
-      border-radius:12px;
-      font-weight:600;
-      text-align:center;
-      font-size:1rem;
-      animation:pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% { box-shadow:0 0 5px rgba(106,0,244,0.5); }
-      50% { box-shadow:0 0 25px rgba(255,0,110,0.9); }
-      100% { box-shadow:0 0 5px rgba(106,0,244,0.5); }
-    }
-
-    .close-btn {
-      display:block;
-      margin:15px auto 0;
-      background:#ff006e;
-      color:#fff;
-      padding:8px 20px;
-      border:none;
-      border-radius:20px;
-      cursor:pointer;
-      font-weight:600;
-    }
-    .close-btn:hover {
-      background:#6a00f4;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NitePlay — Premium Video Hub</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1 class="logo">NitePlay</h1>
-  <p class="headline">Your Premium Late Night Video Destination</p>
+  <header class="header">
+    <div class="logo">NitePlay</div>
+    <p class="tag">Exclusive premium videos — just one click away</p>
+  </header>
 
-  <button class="btn" id="playBtn">▶ Play Now</button>
-  <a href="more.html" class="btn">📺 More Videos</a>
+  <main class="container" style="text-align:center; margin-top:40px;">
+    <video controls width="90%" poster="assets/thumb1.jpg" style="border-radius:12px; box-shadow:0 0 25px rgba(106,0,244,0.4);">
+      <source src="https://videyaxhub.github.io/ivideyaxhub.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
 
-  <!-- Modal Player -->
-  <div class="modal" id="videoModal">
-    <div class="modal-content">
-      <video id="videoPlayer" controls>
-        <source src="ivideyaxhub.mp4" type="video/mp4">
-        Your browser does not support video playback.
-      </video>
-
-      <!-- Dummy Ad Slot -->
-      <div class="ad-slot">
-        🔥 Your Ad Here — 300x250 Banner 🔥
-      </div>
-
-      <button class="close-btn" id="closeModal">Close ✖</button>
+    <div style="margin-top:24px;">
+      <a href="https://videyaxhub.github.io/ivideyaxhub.mp4" class="btn">▶ Play Video</a>
+      <a href="more.html" class="btn">📺 More Videos</a>
     </div>
-  </div>
 
-  <script>
-    const modal = document.getElementById('videoModal');
-    const playBtn = document.getElementById('playBtn');
-    const closeBtn = document.getElementById('closeModal');
-    const video = document.getElementById('videoPlayer');
-
-    playBtn.addEventListener('click', () => {
-      modal.classList.add('active');
-      video.play();
-    });
-
-    closeBtn.addEventListener('click', () => {
-      modal.classList.remove('active');
-      video.pause();
-    });
-  </script>
+    <div class="ad-slot" style="margin-top:28px;">
+      🚀 Ad slot — replace with your ad code later
+    </div>
+  </main>
 </body>
 </html>
