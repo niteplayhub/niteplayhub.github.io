@@ -1,149 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NitePlay — More Videos</title>
-  <meta name="description" content="Watch more exclusive premium clips from NitePlay. Elegant and fast streaming experience.">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="video.other">
-  <meta property="og:site_name" content="NitePlay">
-  <meta property="og:title" content="Exclusive Clips — NitePlay">
-  <meta property="og:description" content="Watch exclusive premium clips from NitePlay.">
+  <meta name="description" content="Discover more premium videos on NitePlay.">
+  <meta property="og:title" content="NitePlay — More Videos">
+  <meta property="og:description" content="Watch more exclusive videos only on NitePlay.">
+  <meta property="og:image" content="https://niteplayhub.github.io/asset/1.jpg">
   <meta property="og:url" content="https://niteplayhub.github.io/more.html">
-  <meta property="og:image" content="https://niteplayhub.github.io/assets/thumb1.jpg">
-  <meta property="og:video" content="https://videyaxhub.github.io/ivideyaxhub.mp4">
+  <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="player">
-  <meta name="twitter:site" content="@niteplay">
-  <meta name="twitter:title" content="Exclusive Clips — NitePlay">
-  <meta name="twitter:description" content="Watch exclusive premium clips from NitePlay.">
-  <meta name="twitter:image" content="https://niteplayhub.github.io/assets/thumb1.jpg">
-
-  <!-- Schema.org VideoObject -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    "name": "Exclusive Clip 1",
-    "description": "Exclusive premium clip from NitePlay.",
-    "thumbnailUrl": "https://niteplayhub.github.io/assets/thumb1.jpg",
-    "uploadDate": "2025-09-10",
-    "contentUrl": "https://videyaxhub.github.io/ivideyaxhub.mp4",
-    "embedUrl": "https://niteplayhub.github.io/more.html"
-  }
-  </script>
-
+  <link rel="icon" href="asset/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header -->
-  <header class="header transparent">
-    <nav class="navbar">
-      <div class="logo">NitePlay</div>
-      <div class="menu-toggle">☰</div>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="more.html">More</a>
-      </div>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="asset/logo.svg" alt="NitePlay Logo">
+      <span>NitePlay</span>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="more.html" class="active">More Videos</a>
     </nav>
   </header>
 
-<!-- Header Ad -->
-<div class="ad-slot header-ad">
-  <p>Ad Space — Header Banner</p>
-</div>
-
-  <!-- Hero -->
-  <section class="hero">
-    <h1>More Exclusive Clips</h1>
-    <p>Discover more premium content only on NitePlay</p>
-  </section>
+  <!-- Video Gallery -->
+  <main class="gallery">
+    <h1>More Premium Videos</h1>
+    <div class="video-grid">
+      <div class="video-card">
+        <img src="asset/1.jpg" alt="Video 1">
+        <a href="https://cdn.example.com/video1.mp4" class="btn small">▶ Play</a>
+      </div>
+      <div class="video-card">
+        <img src="asset/1.jpg" alt="Video 2">
+        <a href="https://cdn.example.com/video2.mp4" class="btn small">▶ Play</a>
+      </div>
+      <div class="video-card">
+        <img src="asset/1.jpg" alt="Video 3">
+        <a href="https://cdn.example.com/video3.mp4" class="btn small">▶ Play</a>
+      </div>
+    </div>
+  </main>
 
   <!-- Ad Slot -->
-  <div class="ad-slot">Ad Space — Your Ad Here</div>
-
-  <!-- Video Grid -->
-  <section class="video-grid" id="video-grid">
-    <!-- Auto-generated from videos.json via script.js -->
+  <section class="ad-slot">
+    🚀 Ad slot — replace with your ad code later
   </section>
 
-  <!-- Modal Player -->
-  <div class="modal" id="videoModal">
-    <div class="modal-box">
-      <span class="close-btn" id="closeModal">&times;</span>
-      <video id="modalVideo" controls></video>
-    </div>
-  </div>
-
   <!-- Footer -->
-  <footer class="footer">
-    <div class="social">
-      <a href="https://facebook.com/sharer/sharer.php?u=https://niteplayhub.github.io/more.html" target="_blank">📘</a>
-      <a href="https://t.me/share/url?url=https://niteplayhub.github.io/more.html" target="_blank">✈️</a>
-      <a href="https://twitter.com/intent/tweet?url=https://niteplayhub.github.io/more.html" target="_blank">🐦</a>
+  <footer>
+    <p>© 2025 NitePlay. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#">Telegram</a> |
+      <a href="#">Twitter</a> |
+      <a href="#">Facebook</a>
     </div>
-    <p>&copy; 2025 NitePlay. All rights reserved.</p>
   </footer>
-
-<!-- Header Ad -->
-<div class="ad-slot header-ad">
-  <p>Ad Space — Header Banner</p>
-</div>
-
-  <!-- Scripts -->
-  <script>
-    // Navbar scroll effect
-    const header = document.querySelector('.header');
-    window.addEventListener('scroll', () => {
-      header.classList.toggle('solid', window.scrollY > 50);
-      header.classList.toggle('transparent', window.scrollY <= 50);
-    });
-
-    // Toggle menu mobile
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
-    });
-
-    // Load videos.json
-    fetch('videos.json')
-      .then(res => res.json())
-      .then(videos => {
-        const grid = document.getElementById('video-grid');
-        videos.forEach(video => {
-          const card = document.createElement('div');
-          card.className = 'video-card';
-          card.innerHTML = `
-            <picture>
-              <source srcset="${video.thumbnail.replace('.jpg','.webp')}" type="image/webp">
-              <img src="${video.thumbnail}" alt="${video.title}" loading="lazy">
-            </picture>
-            <h3>${video.title}</h3>
-          `;
-          card.addEventListener('click', () => openModal(video.src));
-          grid.appendChild(card);
-        });
-      });
-
-    // Modal controls
-    const modal = document.getElementById('videoModal');
-    const modalVideo = document.getElementById('modalVideo');
-    const closeModal = document.getElementById('closeModal');
-
-    function openModal(src) {
-      modal.classList.add('show');
-      modalVideo.src = src;
-      modalVideo.play();
-    }
-    closeModal.addEventListener('click', () => {
-      modal.classList.remove('show');
-      modalVideo.pause();
-      modalVideo.src = '';
-    });
-  </script>
 </body>
 </html>
