@@ -3,20 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NitePlay — Premium Video Hub</title>
-  <meta name="description" content="Watch exclusive premium videos — fast, secure, and only on NitePlay.">
-  <meta property="og:title" content="NitePlay — Premium Video Hub">
-  <meta property="og:description" content="Exclusive premium videos — just one click away.">
+  <title>NitePlay Hub — Premium Videos</title>
+  <meta name="description" content="Watch exclusive premium videos only on NitePlay Hub.">
+
+  <!-- SEO & OpenGraph -->
+  <meta property="og:title" content="NitePlay Hub — Premium Videos">
+  <meta property="og:description" content="Watch exclusive premium videos only on NitePlay Hub.">
   <meta property="og:image" content="https://niteplayhub.github.io/asset/1.jpg">
-  <meta property="og:url" content="https://niteplayhub.github.io/">
-  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:type" content="website">
 
   <link rel="icon" href="asset/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navbar -->
- <!-- Navbar -->
+
+<!-- 🔞 Age Gate -->
+<div id="age-gate" class="age-gate">
+  <div class="age-box">
+    <h2>🔞 Age Verification</h2>
+    <p>This website contains adult content.<br> You must be 18+ to enter.</p>
+    <div class="btn-group">
+      <button class="btn primary" onclick="enterSite()">✅ I’m 18+</button>
+      <button class="btn secondary" onclick="exitSite()">❌ Leave</button>
+    </div>
+  </div>
+</div>
+
+<!-- Navbar -->
 <header class="navbar">
   <div class="logo">
     <img src="asset/logo.svg" alt="NitePlay Logo">
@@ -28,7 +41,7 @@
   </nav>
 </header>
 
-<!-- Hero Section -->
+<!-- Hero -->
 <main class="hero">
   <h1>Welcome to <span>NitePlay</span></h1>
   <p>Exclusive premium videos — just one click away</p>
@@ -40,33 +53,29 @@
   </div>
 </main>
 
-  <!-- Hero Section -->
-  <main class="hero">
-    <h1>Welcome to <span>NitePlay</span></h1>
-    <p>Exclusive premium videos — just one click away</p>
-    <img src="asset/1.jpg" alt="Main Video" class="hero-img">
+<!-- Footer -->
+<footer>
+  <p>© 2025 NitePlay Hub. All rights reserved.</p>
+  <div class="social-links">
+    <a href="#">🌐 Twitter</a>
+    <a href="#">💬 Telegram</a>
+    <a href="#">📘 Facebook</a>
+  </div>
+</footer>
 
-    <div class="btn-group">
-      <a href="https://cdn.example.com/video1.mp4" class="btn primary">▶ Play Video</a>
-      <a href="more.html" class="btn secondary">📺 More Videos</a>
-    </div>
-  </main>
-
-  <!-- Ad Slot -->
-  <section class="ad-slot">
-    🚀 Ad slot — replace with your ad code later
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 NitePlay. All rights reserved.</p>
-    <div class="social-links">
-      <a href="#">Telegram</a> |
-      <a href="#">Twitter</a> |
-      <a href="#">Facebook</a>
-    </div>
-  </footer>
+<script>
+function enterSite() {
+  document.getElementById("age-gate").classList.add("hide");
+  localStorage.setItem("ageVerified", "true");
+}
+function exitSite() {
+  window.location.href = "https://www.google.com";
+}
+window.onload = function() {
+  if (localStorage.getItem("ageVerified") === "true") {
+    document.getElementById("age-gate").classList.add("hide");
+  }
+}
+</script>
 </body>
 </html>
-
-
