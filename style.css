@@ -25,7 +25,7 @@ img {
   position: sticky;
   top: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.95);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,7 +42,7 @@ img {
 }
 .logo span {
   font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: #d7263d;
 }
@@ -96,7 +96,11 @@ img {
   padding: 12px 28px;
   border-radius: 8px;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.btn:hover {
+  transform: translateY(-2px);
 }
 .btn.primary {
   background: #d7263d;
@@ -115,6 +119,8 @@ img {
 .btn.small {
   padding: 8px 16px;
   font-size: 0.9rem;
+  width: 100%;
+  text-align: center;
 }
 
 /* ===== Video Gallery ===== */
@@ -134,22 +140,23 @@ img {
   gap: 1.5rem;
 }
 .video-card {
-  background: #1c1c1c;
+  background: #1a1a1a;
   padding: 1rem;
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.5);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .video-card:hover {
   transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
 }
 .video-card img {
   margin-bottom: 0.8rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
 }
-.video-card .btn {
-  display: block;
-  text-align: center;
-  margin-top: 0.5rem;
+.video-card:hover img {
+  transform: scale(1.05);
 }
 
 /* ===== Ad Slot ===== */
@@ -205,32 +212,4 @@ footer .social-links a:hover {
   .video-grid {
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   }
-}
-
-/* Logo fix */
-.logo span {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #d7263d;
-}
-
-/* Navbar mobile spacing */
-@media (max-width: 768px) {
-  .navbar nav a {
-    font-size: 0.95rem;
-  }
-}
-
-/* Buttons polish */
-.btn {
-  display: inline-block;
-  padding: 12px 28px;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: all 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}
-.btn:hover {
-  transform: translateY(-2px);
 }
