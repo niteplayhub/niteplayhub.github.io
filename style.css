@@ -1,105 +1,208 @@
-/* ==== Reset ==== */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* ===== Reset & Base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
-  font-family: 'Inter','Poppins',sans-serif;
-  background-color: #0d0d0f;
-  color: #e5e5e5;
+  font-family: 'Inter', sans-serif;
+  background: #111;
+  color: #eee;
   line-height: 1.6;
-  padding-top: 70px; /* ruang untuk navbar fixed */
 }
-a { text-decoration: none; color: inherit; }
-
-/* ==== Header / Navbar ==== */
-.header { position: fixed; top:0; left:0; width:100%; transition: background 0.3s, box-shadow 0.3s; z-index:1000; }
-.header.transparent { background: transparent; box-shadow: none; }
-.header.solid { background: rgba(13,13,15,0.95); box-shadow: 0 2px 8px rgba(0,0,0,0.6); }
-
-.navbar { max-width:1200px; margin:0 auto; padding:16px 20px; display:flex; justify-content:space-between; align-items:center; }
-.logo { font-size:1.8rem; font-weight:700; color:#fff; }
-.nav-links { display:flex; gap:22px; }
-.nav-links a { color:#e5e5e5; font-weight:500; transition: color 0.3s, border-bottom 0.3s; padding:6px 0; }
-.nav-links a:hover { color:#ff1744; border-bottom:2px solid #d7263d; }
-.menu-toggle { display:none; font-size:1.8rem; color:#fff; cursor:pointer; }
-
-@media (max-width:768px){
-  .nav-links { display:none; position:absolute; top:70px; right:0; background:#151518; flex-direction:column; width:200px; padding:20px; border-left:1px solid #222; border-bottom:1px solid #222; }
-  .nav-links.show{ display:flex; }
-  .menu-toggle{ display:block; }
+a {
+  text-decoration: none;
+  color: inherit;
 }
-
-/* ==== Hero ==== */
-.hero { text-align:center; padding:80px 20px 40px; }
-.hero h1 { font-size:2.4rem; margin-bottom:12px; }
-.hero p { font-size:1.1rem; color:#aaa; margin-bottom:30px; }
-
-/* ==== Video Wrapper ==== */
-.video-wrapper { position:relative; width:90%; max-width:900px; margin:0 auto; border-radius:16px; overflow:hidden; box-shadow:0 10px 28px rgba(0,0,0,0.6); cursor:pointer; transition:transform 0.3s; }
-.video-wrapper:hover{ transform:scale(1.02); }
-.video-wrapper img{ width:100%; display:block; }
-.video-overlay { position:absolute; inset:0; background:linear-gradient(to bottom,rgba(0,0,0,0.3),rgba(0,0,0,0.7)); display:flex; justify-content:center; align-items:center; }
-.play-circle { width:70px; height:70px; border-radius:50%; background:rgba(215,38,61,0.9); display:flex; justify-content:center; align-items:center; transition:all 0.3s; }
-.play-circle:hover{ background:#ff1744; transform:scale(1.1); }
-.play-circle::before{ content:"▶"; font-size:28px; color:#fff; margin-left:4px; }
-
-/* ==== Buttons ==== */
-.btn { display:inline-block; padding:12px 26px; margin:10px; border-radius:6px; background:#d7263d; color:#fff; font-size:1rem; font-weight:600; border:none; cursor:pointer; transition:all 0.3s; }
-.btn:hover{ background:#ff1744; transform:translateY(-2px); box-shadow:0 6px 16px rgba(215,38,61,0.4); }
-
-/* ==== Ad Slot ==== */
-.ad-slot { margin:40px auto; max-width:900px; background:#151518; border:1px dashed #d7263d; padding:20px; text-align:center; border-radius:10px; font-size:1rem; color:#bbb; }
-
-/* ==== Video Grid ==== */
-.video-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; }
-.video-card { background:#151518; border-radius:12px; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,0.4); transition:transform 0.3s; }
-.video-card:hover { transform:translateY(-6px); }
-.video-card img { width:100%; display:block; }
-.video-card h3 { padding:14px; font-size:1.1rem; font-weight:600; color:#fff; }
-
-/* ==== Modal ==== */
-.modal { position:fixed; inset:0; background:rgba(0,0,0,0.85); display:flex; justify-content:center; align-items:center; visibility:hidden; opacity:0; transition:all 0.3s; z-index:2000; }
-.modal.show{ visibility:visible; opacity:1; }
-.modal-box { background:#0d0d0f; padding:20px; border-radius:12px; max-width:900px; width:95%; }
-.modal video { width:100%; border-radius:8px; }
-.close-btn { float:right; font-size:28px; color:#fff; cursor:pointer; margin-bottom:10px; }
-.close-btn:hover{ color:#ff1744; }
-
-/* ==== Footer ==== */
-.footer { text-align:center; padding:30px 20px; background:#151518; margin-top:60px; }
-.footer .social a { margin:0 10px; font-size:1.4rem; color:#aaa; transition:color 0.3s; }
-.footer .social a:hover { color:#ff1744; }
-.footer p { font-size:0.9rem; color:#666; margin-top:10px; }
-
-/* ==== Lazyload Blur Effect ==== */
-img[loading="lazy"] {
-  filter: blur(8px);
-  transition: filter 0.6s ease;
-}
-img[loading="lazy"]:not([src=""]) {
-  filter: blur(0);
-}
-
-/* Header Ad */
-.header-ad {
+img {
   max-width: 100%;
-  margin: 70px auto 20px;
-  text-align: center;
+  display: block;
+  border-radius: 8px;
 }
 
-/* Middle Ad */
-.middle-ad {
-  margin: 40px auto;
-  max-width: 728px;
-  text-align: center;
-}
-
-/* Footer Ad */
-.footer-ad {
-  position: relative;
-  bottom: 0;
-  left: 0;
+/* ===== Navbar ===== */
+.navbar {
+  position: sticky;
+  top: 0;
   width: 100%;
-  background: #151518;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  z-index: 1000;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.logo img {
+  height: 36px;
+}
+.logo span {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #d7263d;
+}
+.navbar nav a {
+  margin-left: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  transition: color 0.3s;
+}
+.navbar nav a:hover,
+.navbar nav a.active {
+  color: #d7263d;
+}
+
+/* ===== Hero Section ===== */
+.hero {
   text-align: center;
-  padding: 12px;
-  border-top: 1px solid #222;
+  padding: 5rem 1rem 3rem;
+  background: linear-gradient(135deg, #000, #1c1c1c);
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+.hero h1 span {
+  color: #d7263d;
+}
+.hero p {
+  color: #bbb;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+.hero-img {
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.6);
+}
+
+/* ===== Buttons ===== */
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.btn.primary {
+  background: #d7263d;
+  color: #fff;
+}
+.btn.primary:hover {
+  background: #b71c30;
+}
+.btn.secondary {
+  background: #333;
+  color: #fff;
+}
+.btn.secondary:hover {
+  background: #444;
+}
+.btn.small {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+}
+
+/* ===== Video Gallery ===== */
+.gallery {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+.gallery h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+.video-card {
+  background: #1c1c1c;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+}
+.video-card:hover {
+  transform: translateY(-6px);
+}
+.video-card img {
+  margin-bottom: 0.8rem;
+}
+.video-card .btn {
+  display: block;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+/* ===== Ad Slot ===== */
+.ad-slot {
+  text-align: center;
+  background: #222;
+  color: #aaa;
+  padding: 1.2rem;
+  margin: 2rem auto;
+  max-width: 900px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  border: 1px dashed #333;
+}
+
+/* ===== Footer ===== */
+footer {
+  background: #000;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+  color: #aaa;
+}
+footer .social-links {
+  margin-top: 0.8rem;
+}
+footer .social-links a {
+  margin: 0 0.5rem;
+  color: #eee;
+  transition: color 0.3s;
+}
+footer .social-links a:hover {
+  color: #d7263d;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+  }
+  .logo span {
+    font-size: 1.2rem;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .btn-group {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .video-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
 }
