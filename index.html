@@ -1,145 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NitePlay — Premium Video Hub</title>
-  <meta name="description" content="Welcome to NitePlay — your premium hub for exclusive video content. Elegant, fast, and SEO-optimized for the best streaming experience.">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="NitePlay">
+  <meta name="description" content="Watch exclusive premium videos — fast, secure, and only on NitePlay.">
   <meta property="og:title" content="NitePlay — Premium Video Hub">
-  <meta property="og:description" content="Watch exclusive premium video content only on NitePlay.">
+  <meta property="og:description" content="Exclusive premium videos — just one click away.">
+  <meta property="og:image" content="https://niteplayhub.github.io/asset/1.jpg">
   <meta property="og:url" content="https://niteplayhub.github.io/">
-  <meta property="og:image" content="https://niteplayhub.github.io/assets/thumb1.jpg">
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@niteplay">
-  <meta name="twitter:title" content="NitePlay — Premium Video Hub">
-  <meta name="twitter:description" content="Watch exclusive premium video content only on NitePlay.">
-  <meta name="twitter:image" content="https://niteplayhub.github.io/assets/thumb1.jpg">
 
-  <!-- Schema.org WebSite -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "NitePlay",
-    "url": "https://niteplayhub.github.io/",
-    "description": "Welcome to NitePlay — your premium hub for exclusive video content.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "NitePlay",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://niteplayhub.github.io/assets/thumb1.jpg"
-      }
-    }
-  }
-  </script>
-
+  <link rel="icon" href="asset/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header -->
-  <header class="header transparent">
-    <nav class="navbar">
-      <div class="logo">NitePlay</div>
-      <div class="menu-toggle">☰</div>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="more.html">More</a>
-      </div>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="asset/logo.svg" alt="NitePlay Logo">
+      <span>NitePlay</span>
+    </div>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="more.html">More Videos</a>
     </nav>
   </header>
 
-<!-- Header Ad -->
-<div class="ad-slot header-ad">
-  <p>Ad Space — Header Banner</p>
-</div>
-
   <!-- Hero Section -->
-  <section class="hero">
-    <h1>Welcome to NitePlay</h1>
-    <p>Your premium hub for exclusive video experiences.</p>
-  </section>
+  <main class="hero">
+    <h1>Welcome to <span>NitePlay</span></h1>
+    <p>Exclusive premium videos — just one click away</p>
+    <img src="asset/1.jpg" alt="Main Video" class="hero-img">
 
-  <!-- Main Featured Video -->
-  <div class="video-wrapper" onclick="openModal('https://videyaxhub.github.io/ivideyaxhub.mp4')">
-    <picture>
-      <source srcset="assets/thumb1.webp" type="image/webp">
-      <img src="assets/thumb1.jpg" alt="Featured Video" loading="lazy">
-    </picture>
-    <div class="video-overlay">
-      <div class="play-circle"></div>
+    <div class="btn-group">
+      <a href="https://cdn.example.com/video1.mp4" class="btn primary">▶ Play Video</a>
+      <a href="more.html" class="btn secondary">📺 More Videos</a>
     </div>
-  </div>
-
-  <!-- Buttons -->
-  <div style="text-align:center; margin-top:30px;">
-    <a href="https://videyaxhub.github.io/ivideyaxhub.mp4" class="btn" target="_blank">Play Now</a>
-    <a href="more.html" class="btn">More Videos</a>
-  </div>
+  </main>
 
   <!-- Ad Slot -->
-  <div class="ad-slot">Ad Space — Your Ad Here</div>
-
-  <!-- Modal Player -->
-  <div class="modal" id="videoModal">
-    <div class="modal-box">
-      <span class="close-btn" id="closeModal">&times;</span>
-      <video id="modalVideo" controls></video>
-    </div>
-  </div>
+  <section class="ad-slot">
+    🚀 Ad slot — replace with your ad code later
+  </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="social">
-      <a href="https://facebook.com/sharer/sharer.php?u=https://niteplayhub.github.io/" target="_blank">📘</a>
-      <a href="https://t.me/share/url?url=https://niteplayhub.github.io/" target="_blank">✈️</a>
-      <a href="https://twitter.com/intent/tweet?url=https://niteplayhub.github.io/" target="_blank">🐦</a>
+  <footer>
+    <p>© 2025 NitePlay. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#">Telegram</a> |
+      <a href="#">Twitter</a> |
+      <a href="#">Facebook</a>
     </div>
-    <p>&copy; 2025 NitePlay. All rights reserved.</p>
   </footer>
-
-<!-- Header Ad -->
-<div class="ad-slot header-ad">
-  <p>Ad Space — Header Banner</p>
-</div>
-
-  <!-- Scripts -->
-  <script>
-    // Navbar scroll effect
-    const header = document.querySelector('.header');
-    window.addEventListener('scroll', () => {
-      header.classList.toggle('solid', window.scrollY > 50);
-      header.classList.toggle('transparent', window.scrollY <= 50);
-    });
-
-    // Toggle menu mobile
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
-    });
-
-    // Modal controls
-    const modal = document.getElementById('videoModal');
-    const modalVideo = document.getElementById('modalVideo');
-    const closeModal = document.getElementById('closeModal');
-
-    function openModal(src) {
-      modal.classList.add('show');
-      modalVideo.src = src;
-      modalVideo.play();
-    }
-    closeModal.addEventListener('click', () => {
-      modal.classList.remove('show');
-      modalVideo.pause();
-      modalVideo.src = '';
-    });
-  </script>
 </body>
 </html>
