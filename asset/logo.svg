@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="60" viewBox="0 0 200 60">
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d7263d"/>
+      <stop offset="1" stop-color="#ff1744"/>
+    </linearGradient>
+  </defs>
+  <!-- "Nite" putih -->
+  <text x="10" y="40" font-family="Playfair Display, serif" font-weight="700" font-size="32" fill="#ffffff">
+    Nite
+  </text>
+  <!-- "Play" crimson gradient -->
+  <text x="90" y="40" font-family="Poppins, sans-serif" font-weight="700" font-size="32" fill="url(#grad)">
+    Play
+  </text>
+</svg>
