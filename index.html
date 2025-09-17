@@ -2,84 +2,88 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NitePlay Hub — Premium Videos</title>
-  <meta name="description" content="Watch exclusive premium videos only on NitePlay Hub.">
+  <meta name="description" content="Exclusive premium videos in HD quality, only on NitePlay Hub. Enjoy trending, viral, and the latest shows in a modern Netflix-style grid.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- OpenGraph for social preview -->
   <meta property="og:title" content="NitePlay Hub — Premium Videos">
-  <meta property="og:description" content="Watch exclusive premium videos only on NitePlay Hub.">
-  <meta property="og:image" content="https://niteplayhub.github.io/asset/Drivingtowork.jpg">
+  <meta property="og:description" content="Exclusive premium videos in HD quality, only on NitePlay Hub.">
+  <meta property="og:image" content="https://niteplayhub.github.io/asset/og-preview.jpg">
   <meta property="og:type" content="website">
+  <!-- Favicon -->
   <link rel="icon" href="asset/favicon.svg" type="image/svg+xml">
+  <!-- Sitemap for SEO -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<!-- Age Gate -->
-<div id="age-gate" class="age-gate">
-  <div class="age-box">
-    <h2>🔞 Age Verification</h2>
-    <p>This website contains adult content.<br> You must be 18+ to enter.</p>
-    <div class="btn-group">
-      <button class="btn primary" onclick="enterSite()">✅ I’m 18+</button>
-      <button class="btn secondary" onclick="exitSite()">❌ Leave</button>
-    </div>
+<!-- Age Gate Modal -->
+<div id="ageGate" style="display:flex;position:fixed;z-index:9999;top:0;left:0;width:100vw;height:100vh;background:rgba(30,0,0,0.88);align-items:center;justify-content:center;">
+  <div style="background:#2c1b1b;color:#fff;padding:2.1rem 2.5rem 1.5rem 2.5rem;border-radius:18px;box-shadow:0 8px 32px #0009;text-align:center;">
+    <h2>Welcome to NitePlay Hub</h2>
+    <p style="margin:1.1em 0 1.2em 0;">This site contains premium video content.<br><b>Are you 18 years or older?</b></p>
+    <button onclick="document.getElementById('ageGate').style.display='none'" style="background:#ff1e1e;color:#fff;font-weight:700;border:none;padding:0.8em 2em;border-radius:7px;font-size:1.15em;box-shadow:0 2px 8px #ff1e1e44;cursor:pointer;">YES, ENTER</button>
+    <button onclick="window.location.href='https://google.com'" style="background:#222;color:#fff;font-weight:700;border:none;padding:0.8em 2em;border-radius:7px;font-size:1.15em;margin-left:1em;cursor:pointer;">NO, EXIT</button>
   </div>
 </div>
 
-<!-- Navbar Netflix Style -->
-<header class="navbar netflix-navbar">
+<header class="navbar">
   <div class="nav-left">
     <a href="index.html" class="nav-btn active">Home</a>
     <a href="more.html" class="nav-btn">More</a>
   </div>
   <div class="nav-center">
-    <div class="logo">
+    <div class="logo fade-in">
       <img src="asset/logo.svg" alt="NitePlay Logo">
+      <span>NitePlay</span>
     </div>
   </div>
   <div class="nav-right">
-    <form class="search-form" onsubmit="event.preventDefault(); searchVideos();">
-      <input type="text" placeholder="Search..." id="searchInput">
+    <form class="search-form" onsubmit="event.preventDefault();">
+      <input type="text" placeholder="Search..." id="searchInput" oninput="searchVideos()">
       <button type="submit">🔍</button>
     </form>
   </div>
 </header>
 
-<!-- Hero Section -->
 <main>
   <section class="hero">
     <h1>Welcome to <span>NitePlay</span></h1>
     <p>Exclusive premium videos — just one click away</p>
   </section>
-
-  <!-- Netflix Style Grid -->
   <section class="carousel-section">
     <div class="carousel-container">
       <div class="carousel-track" id="carouselTrack">
-        <!-- 10 Thumbnail Cards -->
-        <!-- Repeat this block for 10 items -->
-        <!-- Example Thumbnail -->
-        <div class="card">
-          <img src="asset/Drivingtowork.jpg" alt="Video Thumbnail">
+        <!-- Example Card --- copy for more videos -->
+        <div class="card" data-title="Driving to work">
+          <div class="badge">HD</div>
+          <img src="asset/Drivingtowork.jpg" alt="Driving to work">
           <div class="card-content">
             <h3>Driving to work</h3>
-            <p>Enjoy the latest HD quality videos with exciting shows every day. Watch now and feel the different sensation!</p>
-            <div class="stars">
-              ★★★★☆ <span>7.5</span>
-            </div>
+            <p>Enjoy the latest HD quality videos...</p>
+            <div class="stars">★★★★☆ <span>7.8</span></div>
             <a href="https://niteplayhub.github.io/lZOuIWsU1.mp4" class="btn watch-btn">Watch Video</a>
             <div class="ad-banner">
+              <!-- Iklan script -->
+              <script type="text/javascript">
+                atOptions = {
+                  'key' : '4a2fc598ebbbdbc95eb3bef73798c939',
+                  'format' : 'iframe',
+                  'height' : 50,
+                  'width' : 320,
+                  'params' : {}
+                };
+              </script>
+              <script type="text/javascript" src="//www.highperformanceformat.com/4a2fc598ebbbdbc95eb3bef73798c939/invoke.js"></script>
             </div>
           </div>
         </div>
-        <!-- Copy/modify the card above for other thumbnails -->
-        <!-- ... total 10 cards ... -->
+        <!-- Tambahkan card lain di sini -->
       </div>
     </div>
   </section>
 </main>
 
-<!-- Footer -->
 <footer>
   <p>© 2025 NitePlay Hub. All rights reserved.</p>
   <div class="social-links">
@@ -89,34 +93,14 @@
   </div>
 </footer>
 
-<script>
-function enterSite() {
-  document.getElementById("age-gate").classList.add("hide");
-  localStorage.setItem("ageVerified", "true");
-}
-function exitSite() {
-  window.location.href = "https://www.google.com";
-}
-window.onload = function() {
-  if (localStorage.getItem("ageVerified") === "true") {
-    document.getElementById("age-gate").classList.add("hide");
-  }
-}
+<!-- Modal detail video -->
+<div class="modal" id="videoModal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div id="modalBody"></div>
+  </div>
+</div>
 
-// Carousel auto-scroll
-setInterval(function() {
-  const track = document.getElementById('carouselTrack');
-  track.scrollLeft += 2;
-  if (track.scrollLeft + track.offsetWidth >= track.scrollWidth) {
-    track.scrollLeft = 0;
-  }
-}, 30);
-
-// Dummy search function
-function searchVideos() {
-  const query = document.getElementById('searchInput').value;
-  alert('Search feature is under development! You searched: ' + query);
-}
-</script>
+<script src="main.js"></script>
 </body>
 </html>
