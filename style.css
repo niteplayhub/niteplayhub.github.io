@@ -52,13 +52,14 @@ body {
 .nav-right { justify-content: flex-end; }
 .nav-center { flex: 0; display: flex; align-items: center; justify-content: center; }
 
-.logo {
-  display: flex; align-items: center; gap: 0.6rem;
-  font-size: 1.5rem; font-weight: 700;
-  color: #fff;
-  justify-content: center;
+.logo img {
+  height: 48px;
+  width: auto;
+  margin-right: 12px;
+  filter: drop-shadow(0 2px 4px #0003);
+  background: #fff2;
+  border-radius: 50%;
 }
-.logo img { height: 38px; width: 38px; }
 
 .nav-btn {
   background: none;
