@@ -5,19 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NitePlay Hub — Premium Videos</title>
   <meta name="description" content="Watch exclusive premium videos only on NitePlay Hub.">
-
-  <!-- SEO & OpenGraph -->
   <meta property="og:title" content="NitePlay Hub — Premium Videos">
   <meta property="og:description" content="Watch exclusive premium videos only on NitePlay Hub.">
   <meta property="og:image" content="https://niteplayhub.github.io/asset/1.jpg">
   <meta property="og:type" content="website">
-
   <link rel="icon" href="asset/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- 🔞 Age Gate -->
+<!-- Age Gate -->
 <div id="age-gate" class="age-gate">
   <div class="age-box">
     <h2>🔞 Age Verification</h2>
@@ -29,27 +26,59 @@
   </div>
 </div>
 
-<!-- Navbar -->
-<header class="navbar">
-  <div class="logo">
-    <img src="asset/logo.svg" alt="NitePlay Logo">
+<!-- Navbar Netflix Style -->
+<header class="navbar netflix-navbar">
+  <div class="nav-left">
+    <a href="index.html" class="nav-btn active">Home</a>
+    <a href="more.html" class="nav-btn">More</a>
   </div>
-  <nav>
-    <a href="index.html" class="active">Home</a>
-    <a href="more.html">More Videos</a>
-  </nav>
+  <div class="nav-center">
+    <div class="logo">
+      <img src="asset/logo.svg" alt="NitePlay Logo">
+      <span>NitePlay</span>
+    </div>
+  </div>
+  <div class="nav-right">
+    <form class="search-form" onsubmit="event.preventDefault(); searchVideos();">
+      <input type="text" placeholder="Search..." id="searchInput">
+      <button type="submit">🔍</button>
+    </form>
+  </div>
 </header>
 
-<!-- Hero -->
-<main class="hero">
-  <h1>Welcome to <span>NitePlay</span></h1>
-  <p>Exclusive premium videos — just one click away</p>
-  <img src="asset/1.jpg" alt="Main Video" class="hero-img">
+<!-- Hero Section -->
+<main>
+  <section class="hero">
+    <h1>Welcome to <span>NitePlay</span></h1>
+    <p>Exclusive premium videos — just one click away</p>
+  </section>
 
-  <div class="btn-group">
-    <a href="https://niteplayhub.github.io/sEdH4zUZ1.mp4" class="btn primary">▶ Play Video</a>
-    <a href="more.html" class="btn secondary">📺 More Videos</a>
-  </div>
+  <!-- Netflix Style Grid -->
+  <section class="carousel-section">
+    <div class="carousel-container">
+      <div class="carousel-track" id="carouselTrack">
+        <!-- 10 Thumbnail Cards -->
+        <!-- Repeat this block for 10 items -->
+        <!-- Example Thumbnail -->
+        <div class="card">
+          <img src="asset/Drivingtowork.jpg" alt="Video Thumbnail">
+          <div class="card-content">
+            <h3>Driving to work</h3>
+            <p>Enjoy the latest HD quality videos with exciting shows every day. Watch now and feel the different sensation!</p>
+            <div class="stars">
+              ★★★★☆ <span>7.5</span>
+            </div>
+            <a href="https://niteplayhub.github.io/lZOuIWsU1.mp4" class="btn watch-btn">Watch Video</a>
+            <div class="ad-banner">
+              <img src="asset/ad.jpg" alt="Ad Banner">
+            </div>
+          </div>
+        </div>
+        <!-- Copy/modify the card above for other thumbnails -->
+        <!-- ... total 10 cards ... -->
+      </div>
+    </div>
+  </section>
 </main>
 
 <!-- Footer -->
@@ -74,6 +103,21 @@ window.onload = function() {
   if (localStorage.getItem("ageVerified") === "true") {
     document.getElementById("age-gate").classList.add("hide");
   }
+}
+
+// Carousel auto-scroll
+setInterval(function() {
+  const track = document.getElementById('carouselTrack');
+  track.scrollLeft += 2;
+  if (track.scrollLeft + track.offsetWidth >= track.scrollWidth) {
+    track.scrollLeft = 0;
+  }
+}, 30);
+
+// Dummy search function
+function searchVideos() {
+  const query = document.getElementById('searchInput').value;
+  alert('Search feature is under development! You searched: ' + query);
 }
 </script>
 </body>
