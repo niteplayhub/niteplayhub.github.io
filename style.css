@@ -151,10 +151,12 @@ footer { text-align: center; margin-top: 2rem; padding: 1rem 0; color: #fff; bac
     max-width: 60px;
   }
   .logo img {
-    height: 32px; width: 32px;
+    height: 44px; /* perbesar logo */
+    width: 44px;
   }
   .logo span {
-    font-size: 1.12rem;
+    font-size: 1.3rem; /* perbesar tulisan NITEPLAY */
+    letter-spacing: 2px;
   }
   .search-form input {
     font-size: 0.9rem;
